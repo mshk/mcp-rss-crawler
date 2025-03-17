@@ -19,6 +19,24 @@ An MCP (Message Chain Protocol) server that fetches RSS feeds and shares them wi
 
 1. Clone this repository
 2. Create a `claude_desktop_config.json` file based on `claude_desktop_config.json.example` with your configuration
+
+```json
+{
+  "mcpServers": {
+    "rss-crawler": {
+      "command": "/path/to/bun",
+      "args": ["run", "/path/to/mcp-rss-crawler/src/mcp-cli.ts"],
+      "cwd": "/path/to/mcp-rss-crawler",
+      "env": {
+        "PORT": "5556",
+        "DB_DIR": "/path/to/mcp-rss-crawler",
+        "FIRECRAWL_API_KEY": "fc-<YOUR_FIRECRAWL_API_KEY>"
+      }
+    }
+  }
+}
+```
+
 3. Install dependencies:
    ```
    bun install
@@ -65,6 +83,7 @@ The server can be configured through environment variables or a `.env` file:
 
 - `PORT` - Server port (default: 5556)
 - `FIRECRAWL_API_KEY` - Firecrawl API key
+- `DB_DIR` - Database directory (default: `~/.mcp-rss-crawler`)
 
 ## Troubleshooting
 

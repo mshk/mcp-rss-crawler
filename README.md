@@ -8,6 +8,8 @@ An MCP (Message Chain Protocol) server that fetches RSS feeds and shares them wi
 - MCP protocol implementation for seamless LLM integration
 - Support for filtering feeds by category, source, or keywords
 - Comprehensive API endpoints for feed management
+  - Add, update, and delete feeds
+- Support for fetching articles from Firecrawl
 
 ## Requirements
 

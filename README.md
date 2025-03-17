@@ -4,34 +4,26 @@ An MCP (Message Chain Protocol) server that fetches RSS feeds and shares them wi
 
 ## Features
 
-- Automatic fetching and caching of RSS feeds
+- Fetching and caching of RSS feeds (SQLite database)
 - MCP protocol implementation for seamless LLM integration
 - Support for filtering feeds by category, source, or keywords
-- Customizable refresh intervals for feed updates
-- Stateless authentication using JWT tokens
 - Comprehensive API endpoints for feed management
-- Command-line interface for server administration
+
+## Requirements
+
+- Bun
+- Firecrawl API key
+- Claude Desktop or other MCP client
 
 ## Setup as MCP Server
 
 1. Clone this repository
-2. Create a `.env` file based on `.env.example` with your configuration
+2. Create a `claude_desktop_config.json` file based on `claude_desktop_config.json.example` with your configuration
 3. Install dependencies:
    ```
    bun install
    ```
-4. Start the server:
-   ```
-   bun start
-   ```
-5. Configure your LLM client to use the MCP endpoint at `http://localhost:3000/mcp`
-6. For Claude Desktop, copy `claude_desktop_config.json.example` to your Claude Desktop config directory and update the values as needed
-
-## Usage
-
-1. Start the server with `bun start`
-2. Your MCP endpoint will be available at `http://localhost:3000/mcp`
-3. Configure your LLM client to use this MCP endpoint
+4. Start Claude Desktop:
 
 ## MCP Protocol
 
@@ -67,19 +59,12 @@ Example response:
 }
 ```
 
-## API Endpoints
-
-- `/status` - Check server status
-- `/mcp` - MCP protocol endpoint for LLM integration
-
 ## Configuration Options
 
 The server can be configured through environment variables or a `.env` file:
 
-- `PORT` - Server port (default: 3000)
-- `JWT_SECRET` - Secret for JWT token generation
-- `REFRESH_INTERVAL` - Feed refresh interval in minutes (default: 30)
-- `MAX_ITEMS_PER_FEED` - Maximum number of items to fetch per feed (default: 20)
+- `PORT` - Server port (default: 5556)
+- `FIRECRAWL_API_KEY` - Firecrawl API key
 
 ## Troubleshooting
 
